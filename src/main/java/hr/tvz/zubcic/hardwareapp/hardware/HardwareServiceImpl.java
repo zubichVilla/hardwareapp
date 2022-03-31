@@ -32,15 +32,6 @@ public class HardwareServiceImpl implements HardwareService {
                 .orElse(null);
     }
 
-    @Override
-    public List<HardwareDTO> findByType(String type) {
-        return hardwareRepository
-                .findByType(type)
-                .stream()
-                .map(this::mapHardwareToDTO)
-                .collect(Collectors.toList());
-    }
-
     private HardwareDTO mapHardwareToDTO(Hardware hardware) {
         return new HardwareDTO(hardware.getName(),hardware.getPrice());
     }

@@ -8,5 +8,4 @@ public interface HardwareService {
 
     HardwareDTO findByCode(String code);
 
-    List<HardwareDTO> findByType(String type);
 }

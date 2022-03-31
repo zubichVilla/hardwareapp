@@ -33,10 +33,4 @@ public class HardwareRepositoryImpl implements HardwareRepository {
                 .findAny();
     }
 
-    @Override
-    public List<Hardware> findByType(String type) {
-        return HARDWARE_LIST.stream()
-                .filter(hardware -> hardware.getType().toString().equalsIgnoreCase(type))
-                .collect(Collectors.toList());
-    }
 }

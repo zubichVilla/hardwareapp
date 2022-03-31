@@ -9,6 +9,5 @@ public interface HardwareRepository {
 
     Optional<Hardware> findByCode(String code);
 
-    List<Hardware> findByType(String type);
 
 }
