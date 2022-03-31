@@ -30,10 +30,4 @@ public class HardwareController {
         return hardwareService.findByCode(code);
     }
 
-    @GetMapping(params = "type")
-    public List<HardwareDTO> getHardwareByType(@RequestParam final String type){
-        return hardwareService.findByType(type);
-    }
-
-
 }
