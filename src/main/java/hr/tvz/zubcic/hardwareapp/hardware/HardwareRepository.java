@@ -9,5 +9,7 @@ public interface HardwareRepository {
 
     Optional<Hardware> findByCode(String code);
 
+    Optional<Hardware> save(Hardware hardware);
 
+    void deleteByCode(String code);
 }
