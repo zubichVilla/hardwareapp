@@ -22,12 +22,6 @@ public class HardwareRepositoryImpl implements HardwareRepository {
         return HARDWARE_LIST;
     }
 
-    @Override
-    public Optional<Hardware> findByCode(String code) {
-        return HARDWARE_LIST.stream().filter(hardware -> Objects.equals(hardware.getCode(), code))
-                .findAny();
-    }
-
 
     @Override
     public Optional<Hardware> save(Hardware hardware) {
@@ -51,8 +45,32 @@ public class HardwareRepositoryImpl implements HardwareRepository {
     }
 
     @Override
+    public Optional<Hardware> update(String code,Hardware updatedHardware) {
+
+        if(findByCode(code).isPresent() && code.equals(updatedHardware.getCode())){
+            deleteOldAddUpdatedHardware(updatedHardware);
+
+            return Optional.of(updatedHardware);
+
+        }else{
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<Hardware> findByCode(String code) {
+        return HARDWARE_LIST.stream().filter(hardware -> Objects.equals(hardware.getCode(), code))
+                .findAny();
+    }
+
+    @Override
     public void deleteByCode(String code) {
         HARDWARE_LIST.removeIf(hardware -> hardware.getCode().equalsIgnoreCase(code));
+    }
+
+    private void deleteOldAddUpdatedHardware(Hardware updatedHardware) {
+        deleteByCode(updatedHardware.getCode());
+        HARDWARE_LIST.add(updatedHardware);
     }
 
     private boolean isPresent(Hardware hardware) {

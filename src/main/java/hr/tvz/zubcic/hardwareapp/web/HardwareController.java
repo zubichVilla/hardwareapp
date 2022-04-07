@@ -57,6 +57,16 @@ public class HardwareController {
 
     }
 
+    @PutMapping("/{code}")
+    public ResponseEntity<HardwareDTO> update(@PathVariable String code,
+                                              @Valid @RequestBody final HardwareCommand upadateHardwareCommand){
+        return hardwareService.update(code, upadateHardwareCommand)
+                              .map(ResponseEntity::ok)
+                              .orElseGet(
+                                      () -> ResponseEntity.notFound().build()
+                              );
+    }
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{code}")
     public void delete(@PathVariable String code){

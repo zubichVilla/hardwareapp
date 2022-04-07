@@ -1,6 +1,5 @@
 package hr.tvz.zubcic.hardwareapp.hardware;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +39,17 @@ public class HardwareServiceImpl implements HardwareService {
                 .map(this::mapHardwareToDTO);
     }
 
+    @Override
+    public Optional<HardwareDTO> update(String code, HardwareCommand updatedHardwareCommand) {
+        return hardwareRepository
+                .update(code,mapCommandToHardware(updatedHardwareCommand))
+                .map(this::mapHardwareToDTO);
+    }
+
+    public void deleteByCode(String code) {
+        hardwareRepository.deleteByCode(code);
+    }
+
     private HardwareDTO mapHardwareToDTO(Hardware hardware) {
             return new HardwareDTO(hardware.getName(),hardware.getPrice());
         }
@@ -50,10 +60,6 @@ public class HardwareServiceImpl implements HardwareService {
                             hardwareCommand.getPrice(),
                             hardwareCommand.getType(),
                             hardwareCommand.getQuantityAvailable());
-    }
-
-    public void deleteByCode(String code) {
-        hardwareRepository.deleteByCode(code);
     }
 }
 

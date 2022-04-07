@@ -11,6 +11,7 @@ public interface HardwareService {
 
     Optional<HardwareDTO>save(HardwareCommand hardwareCommand);
 
-    void deleteByCode(String code);
+    Optional<HardwareDTO> update(String code, HardwareCommand updatedHardwareCommand);
 
+    void deleteByCode(String code);
 }
