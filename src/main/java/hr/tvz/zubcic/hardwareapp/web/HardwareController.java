@@ -27,7 +27,7 @@ public class HardwareController {
     }
 
     @GetMapping("/{code}")
-    public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable String code){
+    public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code){
 
         return hardwareService.findByCode(code)
                 .map(

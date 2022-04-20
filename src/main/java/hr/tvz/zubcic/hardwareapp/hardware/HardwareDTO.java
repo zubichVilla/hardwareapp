@@ -4,34 +4,33 @@ import java.math.BigDecimal;
 
 public class HardwareDTO {
 
-    private String name;
-    private BigDecimal price;
+    private final String code;
+    private final String name;
+    private final BigDecimal price;
 
-    public HardwareDTO(String name, BigDecimal price) {
+    public HardwareDTO(String code, String name, BigDecimal price) {
+        this.code = code;
         this.name = name;
         this.price = price;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     @Override
     public String toString() {
         return "HardwareDTO{" +
-                "name='" + name + '\'' +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
     }
