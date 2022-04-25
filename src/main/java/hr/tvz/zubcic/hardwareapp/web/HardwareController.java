@@ -2,6 +2,7 @@ package hr.tvz.zubcic.hardwareapp.web;
 
 import hr.tvz.zubcic.hardwareapp.hardware.HardwareCommand;
 import hr.tvz.zubcic.hardwareapp.hardware.HardwareDTO;
+import hr.tvz.zubcic.hardwareapp.hardware.HardwareService;
 import hr.tvz.zubcic.hardwareapp.hardware.HardwareServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,9 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class HardwareController {
 
-    private final HardwareServiceImpl hardwareService;
+    private final HardwareService hardwareService;
 
-
-    public HardwareController(HardwareServiceImpl hardwareService) {
+    public HardwareController(HardwareService hardwareService) {
         this.hardwareService = hardwareService;
     }
 

@@ -1,8 +1,14 @@
 package hr.tvz.zubcic.hardwareapp.hardware;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+
 public class Hardware {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
 
@@ -18,12 +24,25 @@ public class Hardware {
         CPU, GPU, MBO, RAM, STORAGE,OTHER;
     }
 
+    public Hardware(Long id, String name, String code, BigDecimal price, Type type, Integer quantityAvailable) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.price = price;
+        this.type = type;
+        this.quantityAvailable = quantityAvailable;
+    }
+
     public Hardware(String name, String code, BigDecimal price, Type type, Integer quantityAvailable) {
         this.name = name;
         this.code = code;
         this.price = price;
         this.type = type;
         this.quantityAvailable = quantityAvailable;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Type getType() {

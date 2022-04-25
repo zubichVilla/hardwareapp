@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 @Service
 public class HardwareServiceImpl implements HardwareService {
 
-    private final HardwareRepositoryImpl hardwareRepository;
+    private final HardwareRepository hardwareRepository;
 
-    public HardwareServiceImpl(HardwareRepositoryImpl hardwareRepository) {
+    public HardwareServiceImpl(HardwareRepository hardwareRepository) {
         this.hardwareRepository = hardwareRepository;
     }
 
