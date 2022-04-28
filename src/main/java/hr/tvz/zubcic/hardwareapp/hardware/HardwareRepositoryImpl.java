@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 public class HardwareRepositoryImpl implements HardwareRepository {
@@ -21,6 +22,7 @@ public class HardwareRepositoryImpl implements HardwareRepository {
     public List<Hardware> findAll() {
         return HARDWARE_LIST;
     }
+
 
 
     @Override
@@ -61,6 +63,16 @@ public class HardwareRepositoryImpl implements HardwareRepository {
     public Optional<Hardware> findByCode(String code) {
         return HARDWARE_LIST.stream().filter(hardware -> Objects.equals(hardware.getCode(), code))
                 .findAny();
+    }
+
+    @Override
+    public List<Hardware> findByRange(BigDecimal lowerRange, BigDecimal upperRange) {
+        return HARDWARE_LIST.stream()
+                .filter(hardware -> (
+                                     (hardware.getPrice().compareTo(lowerRange) >= 0) &&
+                                     (hardware.getPrice().compareTo(upperRange) <= 0))
+                )
+                .collect(Collectors.toList());
     }
 
     @Override

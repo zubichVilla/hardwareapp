@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,15 @@ public class HardwareController {
     @GetMapping
     public List<HardwareDTO> getAllHardware(){
         return hardwareService.findAll();
+    }
+
+    @GetMapping("byRange")
+    public List<HardwareDTO> getHardwareByPriceRange(
+            @RequestParam BigDecimal lowerRange,
+            @RequestParam BigDecimal upperRange){
+
+        return hardwareService.findByRange(lowerRange, upperRange);
+
     }
 
     @GetMapping("/{code}")

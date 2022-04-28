@@ -1,11 +1,14 @@
 package hr.tvz.zubcic.hardwareapp.hardware;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 public interface HardwareRepository {
 
     List<Hardware> findAll();
+
+    List<Hardware> findByRange(BigDecimal lowerRange, BigDecimal upperRange);
 
     Optional<Hardware> findByCode(String code);
 
@@ -14,4 +17,5 @@ public interface HardwareRepository {
     Optional<Hardware> update(String code, Hardware mapCommandToHardware);
 
     void deleteByCode(String code);
+
 }

@@ -2,6 +2,7 @@ package hr.tvz.zubcic.hardwareapp.hardware;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,6 +21,15 @@ public class HardwareServiceImpl implements HardwareService {
     public List<HardwareDTO> findAll() {
         return hardwareRepository
                 .findAll()
+                .stream()
+                .map(this::mapHardwareToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<HardwareDTO> findByRange(BigDecimal lowerRange, BigDecimal upperRange) {
+        return hardwareRepository
+                .findByRange(lowerRange, upperRange)
                 .stream()
                 .map(this::mapHardwareToDTO)
                 .collect(Collectors.toList());

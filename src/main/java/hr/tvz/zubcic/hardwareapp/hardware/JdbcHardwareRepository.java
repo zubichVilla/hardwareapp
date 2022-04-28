@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -35,6 +36,11 @@ public class JdbcHardwareRepository implements HardwareRepository {
     @Override
     public List<Hardware> findAll() {
         return List.copyOf(jdbc.query(SELECT_ALL, this::mapRowToHardware));
+    }
+
+    @Override
+    public List<Hardware> findByRange(BigDecimal lowerRange, BigDecimal upperRange) {
+        return List.copyOf(jdbc.query(SELECT_ALL + " WHERE PRICE >= ? AND PRICE <= ?", this::mapRowToHardware, lowerRange,upperRange));
     }
 
 
