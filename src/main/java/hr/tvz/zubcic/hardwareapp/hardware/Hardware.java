@@ -6,8 +6,6 @@ import java.math.BigDecimal;
 
 public class Hardware {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
