@@ -44,6 +44,11 @@ public class JdbcHardwareRepository implements HardwareRepository {
         return List.copyOf(jdbc.query(SELECT_ALL + " WHERE PRICE BETWEEN ? AND ?", this::mapRowToHardware, lowerRange,upperRange));
     }
 
+    @Override
+    public List<Hardware> findByKeyword(String keyword) {
+        return List.copyOf(jdbc.query(SELECT_ALL + " WHERE  LOWER(CODE) LIKE concat(?,'%')", this::mapRowToHardware, keyword.toLowerCase()));
+    }
+
 
     @Override
     public Optional<Hardware> findByCode(String code) {

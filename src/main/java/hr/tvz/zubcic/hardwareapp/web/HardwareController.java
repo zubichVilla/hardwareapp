@@ -37,6 +37,13 @@ public class HardwareController {
 
     }
 
+    @GetMapping("byKeyword")
+    public List<HardwareDTO> getHardwareByPriceRange(@RequestParam String keyword){
+
+        return hardwareService.findByKeyword(keyword);
+
+    }
+
     @GetMapping("/{code}")
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code){
 

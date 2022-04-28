@@ -76,6 +76,11 @@ public class HardwareRepositoryImpl implements HardwareRepository {
     }
 
     @Override
+    public List<Hardware> findByKeyword(String keyword) {
+        return null;
+    }
+
+    @Override
     public void deleteByCode(String code) {
         HARDWARE_LIST.removeIf(hardware -> hardware.getCode().equalsIgnoreCase(code));
     }

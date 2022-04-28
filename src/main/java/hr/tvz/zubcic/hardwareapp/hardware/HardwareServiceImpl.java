@@ -36,6 +36,15 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     @Override
+    public List<HardwareDTO> findByKeyword(String keyword) {
+        return hardwareRepository
+                .findByKeyword(keyword)
+                .stream()
+                .map(this::mapHardwareToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Optional<HardwareDTO> findByCode(String code) {
         return hardwareRepository
                 .findByCode(code)

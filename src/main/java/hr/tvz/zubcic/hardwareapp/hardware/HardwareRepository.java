@@ -10,6 +10,8 @@ public interface HardwareRepository {
 
     List<Hardware> findByRange(BigDecimal lowerRange, BigDecimal upperRange);
 
+    List<Hardware> findByKeyword(String keyword);
+
     Optional<Hardware> findByCode(String code);
 
     Optional<Hardware> save(Hardware hardware);

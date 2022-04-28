@@ -10,6 +10,8 @@ public interface HardwareService {
 
     List<HardwareDTO> findByRange(BigDecimal lowerRange, BigDecimal upperRange);
 
+    List<HardwareDTO> findByKeyword(String keyword);
+
     Optional<HardwareDTO> findByCode(String code);
 
     Optional<HardwareDTO>save(HardwareCommand hardwareCommand);
@@ -17,5 +19,4 @@ public interface HardwareService {
     Optional<HardwareDTO> update(String code, HardwareCommand updatedHardwareCommand);
 
     void deleteByCode(String code);
-
 }
