@@ -1,6 +1,5 @@
 package hr.tvz.zubcic.hardwareapp.hardware;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 
 
@@ -19,7 +18,7 @@ public class Hardware {
     private Integer quantityAvailable;
 
     public enum Type{
-        CPU, GPU, MBO, RAM, STORAGE,OTHER;
+        CPU, GPU, MBO, RAM, STORAGE,OTHER
     }
 
     public Hardware(Long id, String name, String code, BigDecimal price, Type type, Integer quantityAvailable) {
