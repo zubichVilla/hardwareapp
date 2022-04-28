@@ -40,7 +40,8 @@ public class JdbcHardwareRepository implements HardwareRepository {
 
     @Override
     public List<Hardware> findByRange(BigDecimal lowerRange, BigDecimal upperRange) {
-        return List.copyOf(jdbc.query(SELECT_ALL + " WHERE PRICE >= ? AND PRICE <= ?", this::mapRowToHardware, lowerRange,upperRange));
+        //return List.copyOf(jdbc.query(SELECT_ALL + " WHERE PRICE >= ? AND PRICE <= ?", this::mapRowToHardware, lowerRange,upperRange));
+        return List.copyOf(jdbc.query(SELECT_ALL + " WHERE PRICE BETWEEN ? AND ?", this::mapRowToHardware, lowerRange,upperRange));
     }
 
 
