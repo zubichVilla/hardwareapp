@@ -4,6 +4,8 @@ public class Review {
 
     private Long id;
 
+    private String title;
+
     private String reviewText;
 
     private Grade grade;
@@ -15,10 +17,15 @@ public class Review {
     public Review() {
     }
 
-    public Review(Long id, String reviewText, Grade grade) {
+    public Review(Long id, String title, String reviewText, Grade grade) {
         this.id = id;
+        this.title = title;
         this.reviewText = reviewText;
         this.grade = grade;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getReviewText() {
