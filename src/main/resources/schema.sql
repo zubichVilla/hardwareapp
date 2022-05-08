@@ -15,4 +15,4 @@ create table if not exists review(
     grade varchar(20) not null,
     primary key (id),
     foreign key (hardware_id) references hardware(id)
-)
+);
