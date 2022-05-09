@@ -1,22 +1,42 @@
 package hr.tvz.zubcic.hardwareapp.hardware;
 
+import hr.tvz.zubcic.hardwareapp.review.Review;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
+@Entity
+@Table(name = "HARDWARE")
+public class Hardware implements Serializable {
 
-public class Hardware {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "hardware_name")
     private String name;
 
+    @Column(name = "code")
     private String code;
 
+    @Column(name = "price")
     private BigDecimal price;
 
+    @Column(name = "hardware_type")
+    @Enumerated(EnumType.STRING)
     private Type type;
 
+    @Column(name = "quantity_available")
     private Integer quantityAvailable;
+
+    @OneToMany(mappedBy = "hardware")
+    private List<Review> reviewList;
+
+    public Hardware() {
+
+    }
 
     public enum Type{
         CPU, GPU, MBO, RAM, STORAGE,OTHER;
