@@ -6,9 +6,10 @@ public class ReviewDTO {
 
     private final String reviewText;
 
-    private final Review.Grade grade;
+//    private final Review.Grade grade;
+    private final Integer grade;
 
-    public ReviewDTO(String title, String reviewText, Review.Grade grade) {
+    public ReviewDTO(String title, String reviewText, Integer grade) {
         this.title = title;
         this.reviewText = reviewText;
         this.grade = grade;
@@ -22,7 +23,11 @@ public class ReviewDTO {
         return reviewText;
     }
 
-    public Review.Grade getGrade() {
+//    public Review.Grade getGrade() {
+//        return grade;
+//    }
+
+    public Integer getGrade(){
         return grade;
     }
 }

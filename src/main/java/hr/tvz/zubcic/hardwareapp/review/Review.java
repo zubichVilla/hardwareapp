@@ -27,8 +27,22 @@ public class Review {
     private Hardware hardware;
 
     public enum Grade{
-        ONE, TWO, THREE, FOUR, FIVE
+        ONE(1),
+        TWO(2),
+        THREE(3),
+        FOUR(4),
+        FIVE(5);
+
+        private final int value;
+
+        private Grade(int value){
+            this.value = value;
+        }
+
+        public int value() {return this.value;}
     }
+
+
 
     public Review() {
     }
