@@ -88,6 +88,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
 
     @Override
     public void deleteByCode(String code) {
+        jdbc.update("delete from review where hardware_id = (select id from hardware where code = ?)", code);
         jdbc.update("DELETE from hardware WHERE CODE = ?", code);
     }
 

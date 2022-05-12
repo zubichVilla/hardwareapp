@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "HARDWARE")
@@ -102,4 +103,17 @@ public class Hardware implements Serializable {
     public void setQuantityAvailable(Integer quantityAvailable) {
         this.quantityAvailable = quantityAvailable;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Hardware hardware = (Hardware) obj;
+        return code.equals(hardware.code);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
+    }
+
 }
