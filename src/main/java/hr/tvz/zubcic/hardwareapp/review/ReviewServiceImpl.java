@@ -3,6 +3,7 @@ package hr.tvz.zubcic.hardwareapp.review;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,14 +16,24 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
 
-    @Override
-    public List<ReviewDTO> findAll() {
+//    @Override
+//    public List<ReviewDTO> findAll() {
+//        return reviewRepository
+//                .findAll()
+//                .stream()
+//                .map(this::mapReviewToDTO)
+//                .collect(Collectors.toList());
+//    }
+        @Override
+    public List<ReviewTextDTO> findAll() {
         return reviewRepository
                 .findAll()
                 .stream()
-                .map(this::mapReviewToDTO)
+                .map(this::mapReviewTextToDTO)
                 .collect(Collectors.toList());
     }
+
+
 
     @Override
     public List<ReviewDTO> findAllByHardwareCode(String code) {
@@ -37,5 +48,34 @@ public class ReviewServiceImpl implements ReviewService {
         return new ReviewDTO(review.getTitle(),
                 review.getReviewText(),
                 review.getGrade().value());
+    }
+
+
+    @Override
+    public List<ReviewTextDTO> findAllByReviewText(String text) {
+        return reviewRepository
+                .findAllByReviewTextContainingIgnoreCase(text)
+                .stream()
+                .map(this::mapReviewTextToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<ReviewTextDTO> findById(Long id) {
+        return reviewRepository
+                .findById(id)
+                .map(this::mapReviewTextToDTO);
+    }
+
+
+
+
+    private ReviewTextDTO mapReviewTextToDTO(Review review){
+        return new ReviewTextDTO(
+                review.getId(),
+                review.getTitle(),
+                review.getReviewText(),
+                review.getGrade().value(),
+                review.getHardwareCode());
     }
 }
