@@ -2,6 +2,8 @@ package hr.tvz.zubcic.hardwareapp.web;
 
 import hr.tvz.zubcic.hardwareapp.review.ReviewDTO;
 import hr.tvz.zubcic.hardwareapp.review.ReviewService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +27,23 @@ public class ReviewController {
     @GetMapping(params = "code")
     public List<ReviewDTO> getAllReviewsByHardwareCode(@RequestParam String code){
         return reviewService.findAllByHardwareCode(code);
+    }
+
+    @GetMapping(params = "text")
+    public List<ReviewDTO> getAllReviewsWithText(@RequestParam String text){
+        return reviewService.findAllReviewsWithText(text);
+    }
+
+    @GetMapping(params = "id")
+    public ResponseEntity<ReviewDTO> getReviewById(@RequestParam Long id){
+        return reviewService.getReviewById(id)
+                .map(
+                        reviewDTO -> ResponseEntity.status(HttpStatus.OK)
+                                .body(reviewDTO)
+                )
+                .orElseGet(
+                        ()-> ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+                );
     }
 
 }

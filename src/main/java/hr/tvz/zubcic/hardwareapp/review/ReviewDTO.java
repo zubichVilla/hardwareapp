@@ -2,6 +2,8 @@ package hr.tvz.zubcic.hardwareapp.review;
 
 public class ReviewDTO {
 
+    private final Long id;
+
     private final String title;
 
     private final String reviewText;
@@ -9,10 +11,18 @@ public class ReviewDTO {
 //    private final Review.Grade grade;
     private final Integer grade;
 
-    public ReviewDTO(String title, String reviewText, Integer grade) {
+    private final String code;
+
+    public ReviewDTO(Long id, String title, String reviewText, Integer grade, String code) {
+        this.id = id;
         this.title = title;
         this.reviewText = reviewText;
         this.grade = grade;
+        this.code = code;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -29,5 +39,9 @@ public class ReviewDTO {
 
     public Integer getGrade(){
         return grade;
+    }
+
+    public String getCode() {
+        return code;
     }
 }

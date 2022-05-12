@@ -54,6 +54,10 @@ public class Review {
         this.grade = grade;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -65,5 +69,7 @@ public class Review {
     public Grade getGrade() {
         return grade;
     }
+
+    public String getCode(){ return hardware.getCode();}
 
 }
