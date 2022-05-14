@@ -11,14 +11,14 @@ public class ReviewDTO {
 //    private final Review.Grade grade;
     private final Integer grade;
 
-    private final String code;
+    private final String hardwareCode;
 
-    public ReviewDTO(Long id, String title, String reviewText, Integer grade, String code) {
+    public ReviewDTO(Long id, String title, String reviewText, Integer grade, String hardwareCode) {
         this.id = id;
         this.title = title;
         this.reviewText = reviewText;
         this.grade = grade;
-        this.code = code;
+        this.hardwareCode = hardwareCode;
     }
 
     public Long getId() {
@@ -41,7 +41,7 @@ public class ReviewDTO {
         return grade;
     }
 
-    public String getCode() {
-        return code;
+    public String getHardwareCode() {
+        return hardwareCode;
     }
 }
