@@ -45,7 +45,7 @@ values (8, 'Lose', 'Vratio u trgovinu','ONE', 4);
 
 
 insert into authority (id, authority_name) values (1, 'ROLE_ADMIN');
-insert into authority (id, authority_name) values (1, 'ROLE_USER');
+insert into authority (id, authority_name) values (2, 'ROLE_USER');
 
 insert into user (id, username, password)
 values (1, 'admin', '$2a$10$Ub7v1c3xfpDhkey7sMtDBuOdFaP/XGKZmS1wh3Itr86uB9qCJzRZa');
