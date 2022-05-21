@@ -1,6 +1,5 @@
-package hr.tvz.zubcic.hardwareapp.security;
+package hr.tvz.zubcic.hardwareapp.jwt;
 
-import hr.tvz.zubcic.hardwareapp.security.service.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

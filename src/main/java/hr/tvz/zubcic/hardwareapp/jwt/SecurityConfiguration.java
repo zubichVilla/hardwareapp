@@ -1,4 +1,4 @@
-package hr.tvz.zubcic.hardwareapp.security;
+package hr.tvz.zubcic.hardwareapp.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +24,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
 
     static final List<String> UNAUTHENTICATED_ENDPOINTS = List.of(
-            // TODO - popisati putanje koje ne trebaju biti prolaziti autentifikaciju
             "/authentication/login",
             "/h2-console/**"
     );
@@ -38,7 +37,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // TODO - pobrinuti se da radi pristup h2 konzoli, slobodno ugasiti CORS, CSRF i slične zaštite
         http = http.cors().and().csrf().disable();
         http = http.headers().frameOptions().disable()
                 .and();

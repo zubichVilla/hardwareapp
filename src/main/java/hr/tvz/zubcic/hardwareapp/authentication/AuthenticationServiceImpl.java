@@ -1,9 +1,10 @@
-package hr.tvz.zubcic.hardwareapp.security.service;
+package hr.tvz.zubcic.hardwareapp.authentication;
 
-import hr.tvz.zubcic.hardwareapp.security.command.LoginCommand;
-import hr.tvz.zubcic.hardwareapp.security.domain.User;
-import hr.tvz.zubcic.hardwareapp.security.dto.LoginDTO;
-import hr.tvz.zubcic.hardwareapp.security.repository.UserRepository;
+import hr.tvz.zubcic.hardwareapp.login.LoginCommand;
+import hr.tvz.zubcic.hardwareapp.user.User;
+import hr.tvz.zubcic.hardwareapp.login.LoginDTO;
+import hr.tvz.zubcic.hardwareapp.user.UserRepository;
+import hr.tvz.zubcic.hardwareapp.jwt.JwtService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -34,14 +35,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     private boolean isMatchingPassword(String rawPassword, String encryptedPassword) {
-        // TODO - implementirati provjeru odgovara li lozinka, koju je unio korisnik, enkriptiranoj lozinki u bazi
-
 
         if(BCrypt.checkpw(rawPassword, encryptedPassword)){
             return true;
         }else{
             return false;
-            // throw new UnsupportedOperationException();
         }
 
     }

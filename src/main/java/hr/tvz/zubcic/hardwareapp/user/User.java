@@ -1,7 +1,8 @@
-package hr.tvz.zubcic.hardwareapp.security.domain;
+package hr.tvz.zubcic.hardwareapp.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hr.tvz.zubcic.hardwareapp.authority.Authority;
 import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;

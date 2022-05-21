@@ -1,9 +1,9 @@
-package hr.tvz.zubcic.hardwareapp.security.service;
+package hr.tvz.zubcic.hardwareapp.jwt;
 
-import hr.tvz.zubcic.hardwareapp.security.domain.Authority;
-import hr.tvz.zubcic.hardwareapp.security.domain.User;
-import hr.tvz.zubcic.hardwareapp.security.user.ApplicationUser;
-import hr.tvz.zubcic.hardwareapp.security.user.UserAuthentication;
+import hr.tvz.zubcic.hardwareapp.authority.Authority;
+import hr.tvz.zubcic.hardwareapp.user.User;
+import hr.tvz.zubcic.hardwareapp.user.ApplicationUser;
+import hr.tvz.zubcic.hardwareapp.user.UserAuthentication;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

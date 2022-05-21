@@ -12,7 +12,7 @@ create table if not exists review(
     id identity,
     title varchar(40) not null,
     text varchar(256) not null,
-    grade varchar(20) not null,
+    rating varchar(20) not null,
     hardware_id integer not null,
     primary key (id),
     foreign key (hardware_id) references hardware(id)

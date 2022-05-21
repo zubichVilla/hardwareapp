@@ -18,15 +18,15 @@ public class Review {
     @Column(name = "text")
     private String reviewText;
 
-    @Column(name = "grade")
+    @Column(name = "rating")
     @Enumerated(EnumType.STRING)
-    private Grade grade;
+    private Rating rating;
 
     @ManyToOne
     @JoinColumn(name = "hardware_id", nullable = false)
     private Hardware hardware;
 
-    public enum Grade{
+    public enum Rating{
         ONE(1),
         TWO(2),
         THREE(3),
@@ -35,7 +35,7 @@ public class Review {
 
         private final int value;
 
-        private Grade(int value){
+        private Rating(int value){
             this.value = value;
         }
 
@@ -47,11 +47,11 @@ public class Review {
     public Review() {
     }
 
-    public Review(Long id, String title, String reviewText, Grade grade) {
+    public Review(Long id, String title, String reviewText, Rating rating) {
         this.id = id;
         this.title = title;
         this.reviewText = reviewText;
-        this.grade = grade;
+        this.rating = rating;
     }
 
     public Long getId() {
@@ -66,8 +66,8 @@ public class Review {
         return reviewText;
     }
 
-    public Grade getGrade() {
-        return grade;
+    public Rating getRating() {
+        return rating;
     }
 
     public String getCode(){ return hardware.getCode();}

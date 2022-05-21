@@ -1,8 +1,8 @@
-package hr.tvz.zubcic.hardwareapp.security.controller;
+package hr.tvz.zubcic.hardwareapp.web;
 
-import hr.tvz.zubcic.hardwareapp.security.command.LoginCommand;
-import hr.tvz.zubcic.hardwareapp.security.dto.LoginDTO;
-import hr.tvz.zubcic.hardwareapp.security.service.AuthenticationService;
+import hr.tvz.zubcic.hardwareapp.authentication.AuthenticationService;
+import hr.tvz.zubcic.hardwareapp.login.LoginCommand;
+import hr.tvz.zubcic.hardwareapp.login.LoginDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;

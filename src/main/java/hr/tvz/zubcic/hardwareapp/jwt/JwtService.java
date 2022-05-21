@@ -1,6 +1,6 @@
-package hr.tvz.zubcic.hardwareapp.security.service;
+package hr.tvz.zubcic.hardwareapp.jwt;
 
-import hr.tvz.zubcic.hardwareapp.security.domain.User;
+import hr.tvz.zubcic.hardwareapp.user.User;
 
 public interface JwtService {
 

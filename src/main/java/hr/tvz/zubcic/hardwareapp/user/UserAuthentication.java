@@ -1,4 +1,4 @@
-package hr.tvz.zubcic.hardwareapp.security.user;
+package hr.tvz.zubcic.hardwareapp.user;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 

@@ -54,6 +54,6 @@ public class ReviewServiceImpl implements ReviewService {
         return new ReviewDTO(
                 review.getTitle(),
                 review.getReviewText(),
-                review.getGrade().value());
+                review.getRating().value());
     }
 }

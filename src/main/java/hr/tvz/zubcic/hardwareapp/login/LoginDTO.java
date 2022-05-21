@@ -1,4 +1,4 @@
-package hr.tvz.zubcic.hardwareapp.security.dto;
+package hr.tvz.zubcic.hardwareapp.login;
 
 public class LoginDTO {
     private final String jwt;
