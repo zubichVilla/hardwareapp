@@ -53,7 +53,10 @@ values (1, 'admin', '$2a$10$Ub7v1c3xfpDhkey7sMtDBuOdFaP/XGKZmS1wh3Itr86uB9qCJzRZ
 insert into user (id, username, password)
 values (2, 'user', '$2a$10$Ub7v1c3xfpDhkey7sMtDBuOdFaP/XGKZmS1wh3Itr86uB9qCJzRZa');
 
+
+
 insert into user_authority (user_id, authority_id)
 values (1, 1);
 insert into user_authority (user_id, authority_id)
 values (2, 2);
+

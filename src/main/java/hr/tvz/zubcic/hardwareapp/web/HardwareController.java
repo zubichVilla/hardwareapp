@@ -6,6 +6,7 @@ import hr.tvz.zubcic.hardwareapp.hardware.HardwareService;
 import hr.tvz.zubcic.hardwareapp.hardware.HardwareServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -42,6 +43,7 @@ public class HardwareController {
 
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping
     public ResponseEntity<HardwareDTO> save(@Valid @RequestBody final HardwareCommand hardwareCommand){
         return hardwareService.save(hardwareCommand)
@@ -58,6 +60,7 @@ public class HardwareController {
 
     }
 
+    @Secured("ROLE_ADMIN")
     @PutMapping("/{code}")
     public ResponseEntity<HardwareDTO> update(@PathVariable String code,
                                               @Valid @RequestBody final HardwareCommand upadateHardwareCommand){
@@ -68,6 +71,7 @@ public class HardwareController {
                               );
     }
 
+    @Secured("ROLE_ADMIN")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{code}")
     public void delete(@PathVariable String code){

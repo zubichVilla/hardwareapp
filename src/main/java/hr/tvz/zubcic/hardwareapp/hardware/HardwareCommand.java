@@ -21,18 +21,18 @@ public class HardwareCommand {
     @NotNull(message = "Quantity of the products available must be entered")
     @PositiveOrZero(message = "Quantity of the products available must be 0 or more")
     @Max(message = "Quantity of the products available cannot be higher than 200", value = 200)
-    private Integer quantityAvailable;
+    private Integer stock;
 
     public enum Type{
         CPU, GPU, MBO, RAM, STORAGE,OTHER;
     }
 
-    public HardwareCommand(String name, String code, BigDecimal price, Hardware.Type type, Integer quantityAvailable) {
+    public HardwareCommand(String name, String code, BigDecimal price, Hardware.Type type, Integer stock) {
         this.name = name;
         this.code = code;
         this.price = price;
         this.type = type;
-        this.quantityAvailable = quantityAvailable;
+        this.stock = stock;
     }
 
     public String getName() {
@@ -67,11 +67,11 @@ public class HardwareCommand {
         this.type = type;
     }
 
-    public Integer getQuantityAvailable() {
-        return quantityAvailable;
+    public Integer getStockAvailable() {
+        return stock;
     }
 
-    public void setQuantityAvailable(Integer quantityAvailable) {
-        this.quantityAvailable = quantityAvailable;
+    public void setStockAvailable(Integer quantityAvailable) {
+        this.stock = quantityAvailable;
     }
 }

@@ -24,9 +24,9 @@ public class ReviewController {
         return reviewService.findAll();
     }
 
-    @GetMapping(params = "code")
-    public List<ReviewDTO> getAllReviewsByHardwareCode(@RequestParam String code){
-        return reviewService.findAllByHardwareCode(code);
+    @GetMapping(params = "hardwareCode")
+    public List<ReviewDTO> getAllReviewsByHardwareCode(@RequestParam String hardwareCode){
+        return reviewService.findAllByHardwareCode(hardwareCode);
     }
 
     @GetMapping(params = "text")

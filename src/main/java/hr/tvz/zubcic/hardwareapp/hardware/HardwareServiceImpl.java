@@ -63,7 +63,7 @@ public class HardwareServiceImpl implements HardwareService {
                             hardwareCommand.getCode(),
                             hardwareCommand.getPrice(),
                             hardwareCommand.getType(),
-                            hardwareCommand.getQuantityAvailable());
+                            hardwareCommand.getStockAvailable());
     }
 }
 

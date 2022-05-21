@@ -8,14 +8,14 @@ public class HardwareDTO {
     private final String name;
     private final BigDecimal price;
     private final Hardware.Type type;
-    private final Integer quantityAvailable;
+    private final Integer stock;
 
-    public HardwareDTO(String code, String name, BigDecimal price, Hardware.Type type, Integer quantityAvailable) {
+    public HardwareDTO(String code, String name, BigDecimal price, Hardware.Type type, Integer stock) {
         this.code = code;
         this.name = name;
         this.price = price;
         this.type = type;
-        this.quantityAvailable = quantityAvailable;
+        this.stock = stock;
     }
 
     public String getCode() {
@@ -34,8 +34,8 @@ public class HardwareDTO {
         return type;
     }
 
-    public Integer getQuantityAvailable() {
-        return quantityAvailable;
+    public Integer getStockAvailable() {
+        return stock;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class HardwareDTO {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", type=" + type +
-                ", quantityAvailable=" + quantityAvailable +
+                ", stock=" + stock +
                 '}';
     }
 }
