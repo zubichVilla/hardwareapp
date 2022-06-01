@@ -1,5 +1,5 @@
-delete from hardware;
 delete from review;
+delete from hardware;
 
 delete from user_authority;
 delete from user;

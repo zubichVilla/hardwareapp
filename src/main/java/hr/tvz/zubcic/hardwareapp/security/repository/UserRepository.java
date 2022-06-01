@@ -1,6 +1,6 @@
-package hr.tvz.zubcic.hardwareapp.user;
+package hr.tvz.zubcic.hardwareapp.security.repository;
 
-import hr.tvz.zubcic.hardwareapp.user.User;
+import hr.tvz.zubcic.hardwareapp.security.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

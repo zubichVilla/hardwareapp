@@ -1,7 +1,7 @@
-package hr.tvz.zubcic.hardwareapp.jwt;
+package hr.tvz.zubcic.hardwareapp.security.service;
 
-import hr.tvz.zubcic.hardwareapp.authority.Authority;
-import hr.tvz.zubcic.hardwareapp.user.User;
+import hr.tvz.zubcic.hardwareapp.security.domain.Authority;
+import hr.tvz.zubcic.hardwareapp.security.domain.User;
 import hr.tvz.zubcic.hardwareapp.user.ApplicationUser;
 import hr.tvz.zubcic.hardwareapp.user.UserAuthentication;
 import io.jsonwebtoken.*;

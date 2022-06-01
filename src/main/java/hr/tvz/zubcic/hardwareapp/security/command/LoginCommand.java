@@ -1,4 +1,4 @@
-package hr.tvz.zubcic.hardwareapp.login;
+package hr.tvz.zubcic.hardwareapp.security.command;
 
 import javax.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package hr.tvz.zubcic.hardwareapp.authority;
+package hr.tvz.zubcic.hardwareapp.security.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

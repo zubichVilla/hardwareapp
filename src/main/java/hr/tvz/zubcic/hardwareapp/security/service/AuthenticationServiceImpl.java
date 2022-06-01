@@ -1,10 +1,9 @@
-package hr.tvz.zubcic.hardwareapp.authentication;
+package hr.tvz.zubcic.hardwareapp.security.service;
 
-import hr.tvz.zubcic.hardwareapp.login.LoginCommand;
-import hr.tvz.zubcic.hardwareapp.user.User;
-import hr.tvz.zubcic.hardwareapp.login.LoginDTO;
-import hr.tvz.zubcic.hardwareapp.user.UserRepository;
-import hr.tvz.zubcic.hardwareapp.jwt.JwtService;
+import hr.tvz.zubcic.hardwareapp.security.command.LoginCommand;
+import hr.tvz.zubcic.hardwareapp.security.domain.User;
+import hr.tvz.zubcic.hardwareapp.security.dto.LoginDTO;
+import hr.tvz.zubcic.hardwareapp.security.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
