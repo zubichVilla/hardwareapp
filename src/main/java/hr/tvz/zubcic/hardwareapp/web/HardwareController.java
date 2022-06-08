@@ -67,7 +67,8 @@ public class HardwareController {
         return hardwareService.update(code, upadateHardwareCommand)
                               .map(ResponseEntity::ok)
                               .orElseGet(
-                                      () -> ResponseEntity.notFound().build()
+                                      //() -> ResponseEntity.notFound().build()
+                                      () -> ResponseEntity.status(HttpStatus.BAD_REQUEST).build()
                               );
     }
 

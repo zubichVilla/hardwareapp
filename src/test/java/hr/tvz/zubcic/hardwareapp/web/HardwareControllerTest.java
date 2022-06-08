@@ -155,6 +155,42 @@ class HardwareControllerTest {
 
     @DirtiesContext
     @Test
+    void update_validation() throws Exception {
+
+        String CODE_TEST = "4444";
+        String NAME_TEST = "test_hardware";
+        BigDecimal PRICE_TEST = BigDecimal.valueOf(300);
+        Hardware.Type TYPE_TEST = Hardware.Type.RAM;
+        Integer STOCK_TEST = 250;
+
+        HardwareCommand hardwareCommandTest = new HardwareCommand(
+                NAME_TEST,
+                CODE_TEST,
+                PRICE_TEST,
+                TYPE_TEST,
+                STOCK_TEST
+        );
+
+        this.mockMvc.perform(
+                        put("/hardware/" + CODE_TEST)
+                                .with(
+                                        user("admin")
+                                                .password("test")
+                                                .roles("ADMIN")
+                                )
+                                .with(csrf())
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(hardwareCommandTest))
+                                .accept(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isBadRequest());
+    }
+
+
+
+
+    @DirtiesContext
+    @Test
     void delete() throws Exception {
 
         String CODE_HARDWAREE_TEST = "2222";
