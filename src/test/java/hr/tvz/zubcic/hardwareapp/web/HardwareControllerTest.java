@@ -240,6 +240,7 @@ class HardwareControllerTest {
 
 
         String token = mvcResultResponse;
+
         return token;
     }
 
